@@ -1,0 +1,49 @@
+
+--------------------- 2021 05 04 --------------------
+
+Dependency Injection : 스프링 프레임워크 핵심 기능 
+
+-> 종속성 주입 이라하는데 그렇게 보다는 부품 조립으로 보는게 더낫다.
+
+
+class A  // B를 A 의 부품이라한다
+{
+	private B b;
+	
+	public A(){
+	   b = new B();
+	}
+}
+
+class A // 조립형 
+{
+ 	private B b;
+	
+	public A(){
+
+	}
+
+	public void setB(B b){
+	    this.b = b;
+	}
+}
+
+IoC Container : 
+
+UI Service Dao :
+
+B b = new B();  // new B() --> Dependency
+A a = new A();
+
+1) a.setB(b);  --> Injection // 장점은 바꿀때 편하지만 setB해야하는 불편함이있다.
+--> Setter Injection 이라한다.
+2) A a = new A(b);
+--> Construction Injection 이라한다.
+
+Spring 의 능력은 Dependency 를 Injection해주는 능력인데 부품을 조립해주는 능력이다.
+
+IoC Container  
+
+----------- 설정 파일 네임스페이스
+
+<beans xmlns = "http://www.springframework.org/schema/	
